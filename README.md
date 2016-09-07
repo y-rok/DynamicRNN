@@ -7,7 +7,7 @@ The example for Recurrent Neural Network of Variable Sequence Length
   - Featrue 
     - binary data which of length is from 3 to 20 (ex) 0,1,0,0,0,1,1,1 (length 8) )
   - Label 
-    - classification whether the number of 1s are more than 7 ( ex) 1 if the number of 1s is 9 )
+    - classification whether the number of 1s is more than 7 ( ex) 1 if the number of 1s is 9 )
 
 2. training and testing RNN model
   - In default configuration, the accurarcy of model is more than 95%
