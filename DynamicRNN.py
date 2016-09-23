@@ -7,7 +7,7 @@ reference - # http://danijar.com/variable-sequence-lengths-in-tensorflow/
 '''
 import tensorflow as tf
 from DataSet import *
-
+import time
 class DynamicRNN:
 
 
@@ -20,6 +20,7 @@ class DynamicRNN:
     # learning / store model / restore model
     def learning(self, epoch=1000, batchSize=None, numHidden=200, learningRate=0.003, storePath=None, restorePath=None):
 
+        t1 = time.time()
         if batchSize ==None:
             batchSize=len(self.trainingData.data)
 
@@ -52,7 +53,8 @@ class DynamicRNN:
                 testingDataAccuracy = sess.run(accuracy, {data: self.testingData.data, label: self.testingData.label,length: self.testingData.dataLength})
                 loss = sess.run(cost, {data: self.trainingData.data, label: self.trainingData.label, length: self.trainingData.dataLength})
                 print('Epoch {:2d} accuracy {:3.1f}%'.format(i, 100 * testingDataAccuracy) + ' loss {:.6f}'.format(loss))
-
+                t2 = time.time()
+                print("elapsed time =" + str(t2 - t1))
             # save model
             if (i + 1) % 100 == 0 and storePath != None:
                 savePath = saver.save(sess, storePath + ".ckpt")
