@@ -5,15 +5,19 @@ written by Claude Jang
 
 reference - # http://danijar.com/variable-sequence-lengths-in-tensorflow/
 '''
-import tensorflow as tf
-from DataSet import *
 import time
+
+import tensorflow as tf
+
+from RNN.RNN_DataSet import *
+
+
 class DynamicRNN:
 
 
     def __init__(self,trainingFilePath,testingFilePath):
-        self.trainingData = DataSet(trainingFilePath)
-        self.testingData = DataSet(testingFilePath)
+        self.trainingData = RNN_DataSet(trainingFilePath)
+        self.testingData = RNN_DataSet(testingFilePath)
         self.numClasses = 2
 
 

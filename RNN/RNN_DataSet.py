@@ -5,7 +5,7 @@ used for reading training and testing data
 '''
 import numpy as np
 
-class DataSet:
+class RNN_DataSet:
     def __init__(self, filePath):
         self.data = [] # 3d - batch size * time steps * the number of features
         self.dataLength = [] # 1d - batch size
